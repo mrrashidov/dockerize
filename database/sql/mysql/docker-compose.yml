@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:latest
+    networks:
+      - mysql-network
+    container_name: mysql_container
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-password}
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    networks:
+      - mysql-network
+    container_name: pma_container
+    restart: always
+    env_file: .env
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "${PMA_PUBLIC_PORT:-8080}:80"
+    depends_on:
+      - mysql
+
+networks:
+  mysql-network:
+
+volumes:
+  mysql-data:
