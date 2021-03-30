@@ -1,4 +1,7 @@
 .idea
 .code
-/databases/sql/postgres/.env
-/databases/cache/redis/.env
+/cache/redis/.env
+/database/sql/postgres/.env
+/database/sql/mysql/.env
+/database/nosql/mongodb/.env
+/mq/rabbitmq/.env
