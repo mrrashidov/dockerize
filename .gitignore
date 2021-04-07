@@ -3,5 +3,7 @@
 /cache/redis/.env
 /database/sql/postgres/.env
 /database/sql/mysql/.env
+/database/sql/mssql/volumes
+/database/sql/mssql/.env
 /database/nosql/mongodb/.env
 /mq/rabbitmq/.env
